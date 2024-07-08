@@ -44,6 +44,10 @@ function App() {
     email: "",
     cause: ""
   });
+  const [sortBy, setSortBy] = useState(null);
+  const [filterBy, setFilterBy] = useState([]);
+  const [popupVisible, setPopupVisible] = useState(false);
+  const [popupContent, setPopupContent] = useState(null);
 
   const toggleAnswer1 = () => setShowAnswer1(!showAnswer1);
   const toggleAnswer2 = () => setShowAnswer2(!showAnswer2);
@@ -90,6 +94,11 @@ function App() {
       ...donationDetails,
       cause
     });
+  };
+
+  const handleLearnMoreClick = (university) => {
+    setPopupContent(university);
+    setPopupVisible(true);
   };
     
   return (
@@ -447,9 +456,19 @@ function App() {
                 <button type="submit" className="donate-button">Donate Now</button>
               </div>
             )}
+            {popupVisible && (
+              <div className="popup">
+                <div className="popup-content">
+                  <span className="close" onClick={() => setPopupVisible(false)}>&times;</span>
+                  <h2>{popupContent.name}</h2>
+                  <p>{popupContent.info}</p>
+                </div>
+              </div>
+            )}
           </div>
         </section>
       </main>
+
     </div>
   );
 }
