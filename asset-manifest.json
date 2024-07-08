@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/peopleforpalestine/static/css/main.1d174fb0.css",
+    "main.js": "/peopleforpalestine/static/js/main.190a91c6.js",
+    "static/media/news2.png": "/peopleforpalestine/static/media/news2.68b80d0b3d986f678e77.png",
+    "static/media/news1.png": "/peopleforpalestine/static/media/news1.661864edd5fc37100cc1.png",
+    "static/media/news3.png": "/peopleforpalestine/static/media/news3.eb44d7548b8c6c25819d.png",
+    "static/media/university-map.png": "/peopleforpalestine/static/media/university-map.ef4e03a14b8fb7cb48f2.png",
+    "static/media/protesthome.jpg": "/peopleforpalestine/static/media/protesthome.d9b846aa991e65db5dd4.jpg",
+    "static/media/logo.png": "/peopleforpalestine/static/media/logo.db0c1e6a7d6d11de5c18.png",
+    "static/media/mcmaster-logo.png": "/peopleforpalestine/static/media/mcmaster-logo.2285aaca4e3b2595cf43.png",
+    "static/media/toronto-logo.png": "/peopleforpalestine/static/media/toronto-logo.ecc767d197e2654b256d.png",
+    "static/media/uottawa-logo.png": "/peopleforpalestine/static/media/uottawa-logo.052135fb1dc6b5f396d2.png",
+    "static/media/waterloo-logo.png": "/peopleforpalestine/static/media/waterloo-logo.d5d168986e26c6db7236.png",
+    "static/media/mcgill-logo.png": "/peopleforpalestine/static/media/mcgill-logo.9980b0b7c87f9a881250.png",
+    "static/media/ubc-logo.png": "/peopleforpalestine/static/media/ubc-logo.3d440188a833f6f708b1.png",
+    "index.html": "/peopleforpalestine/index.html",
+    "main.1d174fb0.css.map": "/peopleforpalestine/static/css/main.1d174fb0.css.map",
+    "main.190a91c6.js.map": "/peopleforpalestine/static/js/main.190a91c6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1d174fb0.css",
+    "static/js/main.190a91c6.js"
+  ]
+}
