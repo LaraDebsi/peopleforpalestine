@@ -34,14 +34,16 @@ function App() {
   const [showAnswer1, setShowAnswer1] = useState(false);
   const [showAnswer2, setShowAnswer2] = useState(false);
   const [showAnswer3, setShowAnswer3] = useState(false);
-  const [donationType, setDonationType] = useState("one-time");
-  const [selectedAmount, setSelectedAmount] = useState(100);
-  const [otherAmount, setOtherAmount] = useState(null);
-  const [showOtherAmountInput, setShowOtherAmountInput] = useState(false);
-
-  const [sortBy, setSortBy] = useState("");
-  const [filterBy, setFilterBy] = useState("");
-
+  const [currentStep, setCurrentStep] = useState(1);
+  const [donationDetails, setDonationDetails] = useState({
+    donationType: "one-time",
+    selectedAmount: 100,
+    otherAmount: null,
+    firstName: "",
+    lastName: "",
+    email: "",
+    cause: ""
+  });
 
   const toggleAnswer1 = () => setShowAnswer1(!showAnswer1);
   const toggleAnswer2 = () => setShowAnswer2(!showAnswer2);
@@ -51,79 +53,44 @@ function App() {
     setSelectedUniversity(university);
   };
 
-  const handleLearnMoreClick = (university) => {
-    setPopupContent(university);
-    setPopupVisible(true);
-  };
-
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const [popupVisible, setPopupVisible] = useState(false);
-  const [popupContent, setPopupContent] = useState(null);
+  const filteredUniversities = universities.filter(university =>
+    university.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-  const handleSortChange = (event) => {
-  const value = event.target.value;
-    setSortBy(sortBy === value ? "" : value); 
-  };
-  
-  const handleFilterChange = (event) => {
-  const value = event.target.value;
-    setFilterBy(filterBy === value ? "" : value); 
-  };
-
-  const filteredUniversities = universities
-    .filter(university => university.name.toLowerCase().includes(searchTerm.toLowerCase()))
-    .filter(university => (filterBy === "" || university.status === filterBy))
-    .sort((a, b) => {
-      if (sortBy === "alphabetical") {
-        return a.name.localeCompare(b.name);
-      }
-      return 0;
+  const handleAmountClick = (amount) => {
+    setDonationDetails({
+      ...donationDetails,
+      selectedAmount: amount,
+      otherAmount: amount === 'other' ? '' : null
     });
+  };
 
-    const [currentStep, setCurrentStep] = useState(1);
-    const [donationDetails, setDonationDetails] = useState({
-      donationType: "one-time",
-      selectedAmount: 100,
-      otherAmount: null,
-      firstName: "",
-      lastName: "",
-      email: "",
-      cause: ""
-    });
+  const handleNextStep = () => {
+    setCurrentStep(currentStep + 1);
+  };
 
-    const handleNextStep = () => {
-      setCurrentStep(currentStep + 1);
-    };
+  const handlePrevStep = () => {
+    setCurrentStep(currentStep - 1);
+  };
 
-    const handlePrevStep = () => {
-      setCurrentStep(currentStep - 1);
-    };
-
-    const handleInputChange = (e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
-      setDonationDetails({
-        ...donationDetails,
-        [name]: value
-      });
-    };
+    setDonationDetails({
+      ...donationDetails,
+      [name]: value
+    });
+  };
 
-    const handleAmountClick = (amount) => {
-      setDonationDetails({
-        ...donationDetails,
-        selectedAmount: amount,
-        otherAmount: amount === 'other' ? '' : null
-      });
-    };
-
-    const handleCauseSelect = (cause) => {
-      setDonationDetails({
-        ...donationDetails,
-        cause
-      });
-    };
+  const handleCauseSelect = (cause) => {
+    setDonationDetails({
+      ...donationDetails,
+      cause
+    });
+  };
     
   return (
     <div className="App">
